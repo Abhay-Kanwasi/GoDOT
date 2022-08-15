@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://28181.jpg" type="Texture" id=2]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/SceneChangeButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Action RPG Resources/World/Tree.png" type="Texture" id=7]
+[ext_resource path="res://Action RPG Resources/Enemies/Bat.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "BatAnimation"
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_right = -3.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+
+[node name="Bat" type="Sprite" parent="TextureRect"]
+position = Vector2( 968.5, 890.125 )
+scale = Vector2( 10.9375, 7.97917 )
+texture = ExtResource( 8 )
+
+[node name="Title" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.109804, 0.537255, 0.00784314, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -257.0
+margin_top = -360.0
+margin_right = 257.0
+margin_bottom = -190.0
+custom_styles/normal = SubResource( 2 )
+text = "Player : A 2D Game"
+uppercase = true
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -75.0
+margin_right = 180.0
+margin_bottom = 79.0
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 4 )]
+margin_right = 360.0
+margin_bottom = 73.0
+text = "Play"
+next_scene_path = "res://src/Levels/Level01.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 5 )]
+margin_top = 81.0
+margin_right = 360.0
+margin_bottom = 154.0
+
+[node name="Tree" type="Sprite" parent="."]
+position = Vector2( 381, 547 )
+scale = Vector2( 5.6875, 5.41667 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/BatAnimation = SubResource( 1 )
+
+[node name="Tree2" type="Sprite" parent="."]
+position = Vector2( 1481, 527 )
+scale = Vector2( 5.42187, 4.89583 )
+texture = ExtResource( 7 )
